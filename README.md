@@ -80,3 +80,18 @@ At this point, you will need to wait up to 24hrs or find another way to trigger 
 Enabling "Extended Protection for Authentication" in Windows should stop NTLM relay attacks. 
 
 SMB Signing may also mitigate this type of attack, however this would require some more research on my part to confirm.
+
+###Off Broadcast NBNS Spoofing
+Using the same NBNS spoofing technique as the Potato exploit, we can perform NBNS spoofing against any host for which we can talk to UDP 137. We simply need to send UDP packets quickly enough to sneak in a valid reply before the NBNS request times out.
+
+A demo video of this can be seen at https://www.youtube.com/watch?v=Mzn7ozkyG5g
+
+The demo lab has the following setup:
+
+PFSense firewall
+10.0.0.0/24 -> Corporate LAN
+10.0.1.0 /24 -> Server network
+
+From the corporate network, we’ll attack a machine on the server network.
+
+Usage: python Responder.py –I eth0 –spoof <target>:<spoof address>:<spoof host>
