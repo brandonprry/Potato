@@ -1,5 +1,5 @@
 #Potato
-Privilege Escaltion on Windows 7,8,10, Server 2008, Server 2012
+Privilege Escalation on Windows 7,8,10, Server 2008, Server 2012
 
 ###How it works
 Potato takes advantage of known issues in Windows to gain local privilege escalation, namely NTLM relay (specifically HTTP->SMB relay) and NBNS spoofing.
